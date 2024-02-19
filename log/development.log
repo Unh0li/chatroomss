@@ -759,3 +759,1327 @@ Completed 204 No Content in 55ms (ActiveRecord: 13.1ms | Allocations: 11905)
 
 
 Turbo::StreamsChannel transmitting "<turbo-stream action=\"append\" target=\"messages\"><template><div class=\"cont-1\">\n  <div class=\"message-box msg-1 \" >\n    <div class=\" d-flex align-items-center\">\n      <img class=\"chat_pfp\" src=\"http://example.org/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2... (via streamed from Z2lkOi8vY2hhdHJvb20vUm9vbS8y)
+Started GET "/" for 127.0.0.1 at 2024-02-19 14:15:46 +0100
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1436)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 184)
+  Rendered layout layouts/application.html.erb (Duration: 98.9ms | Allocations: 51397)
+Completed 200 OK in 127ms (Views: 103.6ms | ActiveRecord: 0.0ms | Allocations: 60459)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-02-19 14:15:51 +0100
+Processing by Users::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.8ms | Allocations: 279)
+  Rendered devise/shared/_links.html.erb (Duration: 1.5ms | Allocations: 719)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 22.2ms | Allocations: 13912)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 13)
+  Rendered layout layouts/application.html.erb (Duration: 25.9ms | Allocations: 16843)
+Completed 200 OK in 35ms (Views: 27.2ms | ActiveRecord: 0.7ms | Allocations: 25362)
+
+
+Started POST "/users" for 127.0.0.1 at 2024-02-19 14:16:03 +0100
+Processing by Users::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"pfp"=>#<ActionDispatch::Http::UploadedFile:0x00007f26a0f31f88 @tempfile=#<Tempfile:/tmp/RackMultipart20240219-1176-blb3rc.png>, @original_filename="image_2024-02-06_223843298-removebg-preview.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[pfp]\"; filename=\"image_2024-02-06_223843298-removebg-preview.png\"\r\nContent-Type: image/png\r\n">, "email"=>"andraz@primer.coms", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "andraz@primer.coms"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "room_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["email", "andraz@primer.coms"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2024-02-19 13:16:03.382858"], ["updated_at", "2024-02-19 13:16:03.382858"], ["room_id", nil]]
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "User"], ["name", "pfp"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "User"], ["name", "pfp"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["key", "831p4lmqjy8wh98wc9ejqeoakg6g"], ["filename", "image_2024-02-06_223843298-removebg-preview.png"], ["content_type", "image/png"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 291011], ["checksum", "VFhRljxZUQLx90BKgV+o6Q=="], ["created_at", "2024-02-19 13:16:03.399445"]]
+  [1m[36mActiveStorage::Attachment Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "pfp"], ["record_type", "User"], ["record_id", 2], ["blob_id", 3], ["created_at", "2024-02-19 13:16:03.401436"]]
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-02-19 13:16:03.403603"], ["id", 2]]
+  [1m[36mTRANSACTION (6.8ms)[0m  [1m[36mcommit transaction[0m
+[36m  Disk Storage (1.0ms) [0m[32mUploaded file to key: 831p4lmqjy8wh98wc9ejqeoakg6g (checksum: VFhRljxZUQLx90BKgV+o6Q==)[0m
+  [1m[36mActiveStorage::VariantRecord Load (0.1ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = ? AND "active_storage_variant_records"."variation_digest" = ? LIMIT ?[0m  [["blob_id", 3], ["variation_digest", "ZmDfamq3DaAOqmqEnqBAWE4VJTE="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+[36m  Disk Storage (0.4ms) [0m[34mDownloaded file from key: 831p4lmqjy8wh98wc9ejqeoakg6g[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mActiveStorage::VariantRecord Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_variant_records" ("blob_id", "variation_digest") VALUES (?, ?)[0m  [["blob_id", 3], ["variation_digest", "ZmDfamq3DaAOqmqEnqBAWE4VJTE="]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mActiveStorage::Blob Load (0.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "ActiveStorage::VariantRecord"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "ActiveStorage::VariantRecord"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mActiveStorage::Blob Create (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["key", "76sx4j6j8f4tpgsum8hkrh0xlmwy"], ["filename", "image_2024-02-06_223843298-removebg-preview.png"], ["content_type", "image/png"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 6323], ["checksum", "k1ViYUup6M1I7I/58QE7hA=="], ["created_at", "2024-02-19 13:16:03.598485"]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mActiveStorage::Attachment Create (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "image"], ["record_type", "ActiveStorage::VariantRecord"], ["record_id", 2], ["blob_id", 4], ["created_at", "2024-02-19 13:16:03.600104"]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mTRANSACTION (6.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:19:in `chat_pfp'
+[36m  Disk Storage (0.7ms) [0m[32mUploaded file to key: 76sx4j6j8f4tpgsum8hkrh0xlmwy (checksum: k1ViYUup6M1I7I/58QE7hA==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: f3d1ae77-03c4-460a-a504-9514510ad38e) to Async(default) with arguments: #<GlobalID:0x00007f26a10f62b0 @uri=#<URI::GID gid://chatroom/ActiveStorage::Blob/4>>
+  Rendered users/_user.html.erb (Duration: 196.6ms | Allocations: 60198)
+[ActionCable] Broadcasting to users: "<turbo-stream action=\"append\" target=\"users\"><template><li class=\"list-group-item d-flex align-items-center user_list_item \">\n  <a href=\"/user/2\"><img class=\"chat_pfp\" src=\"http://example.org/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDQT09IiwiZX...
+Completed 500 Internal Server Error in 438ms (ActiveRecord: 15.9ms | Allocations: 112898)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f3d1ae77-03c4-460a-a504-9514510ad38e]   [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f3d1ae77-03c4-460a-a504-9514510ad38e]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f3d1ae77-03c4-460a-a504-9514510ad38e] Performing ActiveStorage::AnalyzeJob (Job ID: f3d1ae77-03c4-460a-a504-9514510ad38e) from Async(default) enqueued at 2024-02-19T13:16:03Z with arguments: #<GlobalID:0x00007f26a0fab068 @uri=#<URI::GID gid://chatroom/ActiveStorage::Blob/4>>
+  
+Redis::CannotConnectError (Error connecting to Redis on localhost:6379 (Errno::ECONNREFUSED)):
+  
+app/models/user.rb:7:in `block in <class:User>'
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f3d1ae77-03c4-460a-a504-9514510ad38e] [36m  Disk Storage (0.8ms) [0m[34mDownloaded file from key: 76sx4j6j8f4tpgsum8hkrh0xlmwy[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f3d1ae77-03c4-460a-a504-9514510ad38e]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f3d1ae77-03c4-460a-a504-9514510ad38e]   [1m[36mActiveStorage::Blob Update (0.2ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"width\":50,\"height\":50,\"analyzed\":true}"], ["id", 4]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f3d1ae77-03c4-460a-a504-9514510ad38e]   [1m[36mTRANSACTION (5.5ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [f3d1ae77-03c4-460a-a504-9514510ad38e] Performed ActiveStorage::AnalyzeJob (Job ID: f3d1ae77-03c4-460a-a504-9514510ad38e) from Async(default) in 244.69ms
+Started GET "/cable" for 127.0.0.1 at 2024-02-19 14:16:06 +0100
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2024-02-19 14:16:06 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cable" for 127.0.0.1 at 2024-02-19 14:17:15 +0100
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2024-02-19 14:17:15 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/" for 127.0.0.1 at 2024-02-19 14:18:07 +0100
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1436)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 184)
+  Rendered layout layouts/application.html.erb (Duration: 56.5ms | Allocations: 40613)
+Completed 200 OK in 75ms (Views: 59.5ms | ActiveRecord: 0.0ms | Allocations: 49676)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-02-19 14:18:09 +0100
+Processing by Users::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.9ms | Allocations: 279)
+  Rendered devise/shared/_links.html.erb (Duration: 1.2ms | Allocations: 719)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 17.8ms | Allocations: 13394)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 13)
+  Rendered layout layouts/application.html.erb (Duration: 21.2ms | Allocations: 16325)
+Completed 200 OK in 31ms (Views: 22.8ms | ActiveRecord: 0.7ms | Allocations: 24844)
+
+
+Started POST "/users" for 127.0.0.1 at 2024-02-19 14:18:14 +0100
+Processing by Users::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"sdf@sdf.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sdf@sdf.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "room_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["email", "sdf@sdf.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2024-02-19 13:18:14.561903"], ["updated_at", "2024-02-19 13:18:14.561903"], ["room_id", nil]]
+  [1m[36mTRANSACTION (6.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "User"], ["name", "pfp"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:25:in `add_default_pfp'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:27:in `add_default_pfp'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "User"], ["name", "pfp"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `add_default_pfp'
+  [1m[36mActiveStorage::Blob Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["key", "xhj2pfn29rmqqlj19jh7f5b44wof"], ["filename", "default_profile.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 219542], ["checksum", "ch15gqBypZ1ggGzfGnPX+w=="], ["created_at", "2024-02-19 13:18:14.600054"]]
+  ↳ app/models/user.rb:27:in `add_default_pfp'
+  [1m[36mActiveStorage::Attachment Create (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "pfp"], ["record_type", "User"], ["record_id", 3], ["blob_id", 5], ["created_at", "2024-02-19 13:18:14.601745"]]
+  ↳ app/models/user.rb:27:in `add_default_pfp'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-02-19 13:18:14.602746"], ["id", 3]]
+  ↳ app/models/user.rb:27:in `add_default_pfp'
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:27:in `add_default_pfp'
+[36m  Disk Storage (1.0ms) [0m[32mUploaded file to key: xhj2pfn29rmqqlj19jh7f5b44wof (checksum: ch15gqBypZ1ggGzfGnPX+w==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 036817af-d251-49fe-bcc4-894f1e4671d9) to Async(default) with arguments: #<GlobalID:0x00007f82911e9608 @uri=#<URI::GID gid://chatroom/ActiveStorage::Blob/5>>
+Redirected to http://127.0.0.1:3000/user/3
+Completed 302 Found in 235ms (ActiveRecord: 14.2ms | Allocations: 47977)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [036817af-d251-49fe-bcc4-894f1e4671d9]   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [036817af-d251-49fe-bcc4-894f1e4671d9] Performing ActiveStorage::AnalyzeJob (Job ID: 036817af-d251-49fe-bcc4-894f1e4671d9) from Async(default) enqueued at 2024-02-19T13:18:14Z with arguments: #<GlobalID:0x00007f8291248108 @uri=#<URI::GID gid://chatroom/ActiveStorage::Blob/5>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [036817af-d251-49fe-bcc4-894f1e4671d9] [36m  Disk Storage (0.4ms) [0m[34mDownloaded file from key: xhj2pfn29rmqqlj19jh7f5b44wof[0m
+Started GET "/user/3" for 127.0.0.1 at 2024-02-19 14:18:14 +0100
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"3"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."name" = ? ORDER BY "rooms"."id" ASC LIMIT ?[0m  [["name", "private_3_3"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/room.rb:14:in `create_private_room'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "private_3_3"], ["LIMIT", 1]]
+  ↳ app/models/room.rb:14:in `create_private_room'
+  [1m[36mRoom Create (0.2ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "is_private", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "private_3_3"], ["is_private", 1], ["created_at", "2024-02-19 13:18:14.711043"], ["updated_at", "2024-02-19 13:18:14.711043"]]
+  ↳ app/models/room.rb:14:in `create_private_room'
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/room.rb:14:in `create_private_room'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/room.rb:16:in `block in create_private_room'
+[ActiveJob] [ActiveStorage::AnalyzeJob] [036817af-d251-49fe-bcc4-894f1e4671d9]   [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [036817af-d251-49fe-bcc4-894f1e4671d9]   [1m[36mActiveStorage::Blob Update (0.2ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"width\":1586,\"height\":1983,\"analyzed\":true}"], ["id", 5]]
+  ↳ app/models/room.rb:16:in `block in create_private_room'
+  [1m[36mParticipant Create (0.6ms)[0m  [1m[32mINSERT INTO "participants" ("user_id", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 3], ["room_id", 3], ["created_at", "2024-02-19 13:18:19.741384"], ["updated_at", "2024-02-19 13:18:19.741384"]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [036817af-d251-49fe-bcc4-894f1e4671d9]   [1m[36mTRANSACTION (5009.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/room.rb:16:in `block in create_private_room'
+[ActiveJob] [ActiveStorage::AnalyzeJob] [036817af-d251-49fe-bcc4-894f1e4671d9]   [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [036817af-d251-49fe-bcc4-894f1e4671d9] Error performing ActiveStorage::AnalyzeJob (Job ID: 036817af-d251-49fe-bcc4-894f1e4671d9) from Async(default) in 5124.53ms: ActiveRecord::StatementInvalid (SQLite3::BusyException: database is locked):
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/sqlite3-1.4.2/lib/sqlite3/resultset.rb:170:in `step'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/sqlite3-1.4.2/lib/sqlite3/resultset.rb:170:in `next_hash'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/sqlite3-1.4.2/lib/sqlite3/resultset.rb:105:in `next'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/sqlite3-1.4.2/lib/sqlite3/resultset.rb:133:in `each'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/sqlite3-1.4.2/lib/sqlite3/database.rb:202:in `to_a'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/sqlite3-1.4.2/lib/sqlite3/database.rb:202:in `block in execute'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/sqlite3-1.4.2/lib/sqlite3/database.rb:151:in `prepare'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/sqlite3-1.4.2/lib/sqlite3/database.rb:193:in `execute'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/sqlite3-1.4.2/lib/sqlite3/database.rb:650:in `commit'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activerecord-7.0.1/lib/active_record/connection_adapters/sqlite3/database_statements.rb:93:in `block in commit_db_transaction'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activesupport-7.0.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activesupport-7.0.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activesupport-7.0.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activesupport-7.0.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activerecord-7.0.1/lib/active_record/connection_adapters/abstract_adapter.rb:765:in `block in log'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activesupport-7.0.1/lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activerecord-7.0.1/lib/active_record/connection_adapters/abstract_adapter.rb:756:in `log'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activerecord-7.0.1/lib/active_record/connection_adapters/sqlite3/database_statements.rb:93:in `commit_db_transaction'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activerecord-7.0.1/lib/active_record/connection_adapters/abstract/transaction.rb:219:in `commit'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activerecord-7.0.1/lib/active_record/connection_adapters/abstract/transaction.rb:303:in `block in commit_transaction'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activesupport-7.0.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activesupport-7.0.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activesupport-7.0.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activesupport-7.0.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activerecord-7.0.1/lib/active_record/connection_adapters/abstract/transaction.rb:294:in `commit_transaction'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activerecord-7.0.1/lib/active_record/connection_adapters/abstract/transaction.rb:345:in `block in within_new_transaction'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activesupport-7.0.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activesupport-7.0.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activesupport-7.0.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activesupport-7.0.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activerecord-7.0.1/lib/active_record/connection_adapters/abstract/transaction.rb:317:in `within_new_transaction'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activerecord-7.0.1/lib/active_record/connection_adapters/abstract/database_statements.rb:316:in `transaction'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activerecord-7.0.1/lib/active_record/transactions.rb:350:in `with_transaction_returning_status'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activerecord-7.0.1/lib/active_record/persistence.rb:779:in `update!'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activestorage-7.0.1/app/models/active_storage/blob/analyzable.rb:29:in `analyze'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activestorage-7.0.1/app/jobs/active_storage/analyze_job.rb:11:in `perform'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activejob-7.0.1/lib/active_job/execution.rb:59:in `block in _perform_job'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activesupport-7.0.1/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/i18n-1.8.11/lib/i18n.rb:314:in `with_locale'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activejob-7.0.1/lib/active_job/translation.rb:9:in `block (2 levels) in <module:Translation>'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activesupport-7.0.1/lib/active_support/callbacks.rb:127:in `instance_exec'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activesupport-7.0.1/lib/active_support/callbacks.rb:127:in `block in run_callbacks'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activesupport-7.0.1/lib/active_support/core_ext/time/zones.rb:66:in `use_zone'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activejob-7.0.1/lib/active_job/timezones.rb:9:in `block (2 levels) in <module:Timezones>'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activesupport-7.0.1/lib/active_support/callbacks.rb:127:in `instance_exec'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activesupport-7.0.1/lib/active_support/callbacks.rb:127:in `block in run_callbacks'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activesupport-7.0.1/lib/active_support/callbacks.rb:138:in `run_callbacks'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activejob-7.0.1/lib/active_job/execution.rb:58:in `_perform_job'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activejob-7.0.1/lib/active_job/instrumentation.rb:20:in `_perform_job'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activejob-7.0.1/lib/active_job/execution.rb:46:in `perform_now'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activejob-7.0.1/lib/active_job/instrumentation.rb:14:in `block in perform_now'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activejob-7.0.1/lib/active_job/instrumentation.rb:25:in `block in instrument'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activesupport-7.0.1/lib/active_support/notifications.rb:206:in `block in instrument'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activesupport-7.0.1/lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activesupport-7.0.1/lib/active_support/notifications.rb:206:in `instrument'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activejob-7.0.1/lib/active_job/instrumentation.rb:35:in `instrument'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activejob-7.0.1/lib/active_job/instrumentation.rb:14:in `perform_now'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activejob-7.0.1/lib/active_job/logging.rb:18:in `block in perform_now'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activesupport-7.0.1/lib/active_support/tagged_logging.rb:99:in `block in tagged'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activesupport-7.0.1/lib/active_support/tagged_logging.rb:37:in `tagged'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activesupport-7.0.1/lib/active_support/tagged_logging.rb:99:in `tagged'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activejob-7.0.1/lib/active_job/logging.rb:25:in `tag_logger'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activejob-7.0.1/lib/active_job/logging.rb:18:in `perform_now'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activejob-7.0.1/lib/active_job/execution.rb:24:in `block in execute'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activesupport-7.0.1/lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activejob-7.0.1/lib/active_job/railtie.rb:54:in `block (4 levels) in <class:Railtie>'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activesupport-7.0.1/lib/active_support/execution_wrapper.rb:89:in `wrap'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activesupport-7.0.1/lib/active_support/reloader.rb:72:in `block in wrap'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activesupport-7.0.1/lib/active_support/execution_wrapper.rb:89:in `wrap'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activesupport-7.0.1/lib/active_support/reloader.rb:71:in `wrap'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activejob-7.0.1/lib/active_job/railtie.rb:53:in `block (3 levels) in <class:Railtie>'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activesupport-7.0.1/lib/active_support/callbacks.rb:127:in `instance_exec'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activesupport-7.0.1/lib/active_support/callbacks.rb:127:in `block in run_callbacks'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activesupport-7.0.1/lib/active_support/callbacks.rb:138:in `run_callbacks'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activejob-7.0.1/lib/active_job/execution.rb:22:in `execute'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/activejob-7.0.1/lib/active_job/queue_adapters/async_adapter.rb:70:in `perform'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/concurrent-ruby-1.1.9/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:363:in `run_task'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/concurrent-ruby-1.1.9/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:352:in `block (3 levels) in create_worker'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/concurrent-ruby-1.1.9/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:335:in `loop'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/concurrent-ruby-1.1.9/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:335:in `block (2 levels) in create_worker'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/concurrent-ruby-1.1.9/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `catch'
+/home/holi/.asdf/installs/ruby/3.0.3/lib/ruby/gems/3.0.0/gems/concurrent-ruby-1.1.9/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:334:in `block in create_worker'
+  ↳ app/models/room.rb:16:in `block in create_private_room'
+Completed 500 Internal Server Error in 5061ms (ActiveRecord: 8.9ms | Allocations: 34029)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::BusyException: database is locked):
+  
+app/models/room.rb:16:in `block in create_private_room'
+app/models/room.rb:15:in `each'
+app/models/room.rb:15:in `create_private_room'
+app/controllers/users_controller.rb:9:in `show'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (18.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (6.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to DeviseCreateUsers (20220123055941)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime(6), "remember_created_at" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220123055941"]]
+  [1m[36mTRANSACTION (7.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateRooms (20220123060614)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "rooms" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "is_private" boolean DEFAULT 0, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220123060614"]]
+  [1m[36mTRANSACTION (7.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateMessages (20220123062800)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "messages" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "room_id" integer NOT NULL, "content" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_273a25a7a6"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_a8db0fb63a"
+FOREIGN KEY ("room_id")
+  REFERENCES "rooms" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_messages_on_user_id" ON "messages" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_messages_on_room_id" ON "messages" ("room_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220123062800"]]
+  [1m[36mTRANSACTION (8.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateParticipants (20220123070639)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "participants" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "room_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_b9a3c50f15"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_08123987c8"
+FOREIGN KEY ("room_id")
+  REFERENCES "rooms" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_participants_on_user_id" ON "participants" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_participants_on_room_id" ON "participants" ("room_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220123070639"]]
+  [1m[36mTRANSACTION (7.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateActiveStorageTables (20220125204925)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "filename" varchar NOT NULL, "content_type" varchar, "metadata" text, "service_name" varchar NOT NULL, "byte_size" bigint NOT NULL, "checksum" varchar, "created_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220125204925"]]
+  [1m[36mTRANSACTION (7.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateActionTextTables (20220125204926)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "action_text_rich_texts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "body" text, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_action_text_rich_texts_uniqueness" ON "action_text_rich_texts" ("record_type", "record_id", "name")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220125204926"]]
+  [1m[36mTRANSACTION (7.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddCurrentRoomToUsers (20220126001952)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "room_id" integer[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_users_on_room_id" ON "users" ("room_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ausers" ("id" integer NOT NULL PRIMARY KEY, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime(6) DEFAULT NULL, "remember_created_at" datetime(6) DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "room_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_ausers_on_room_id" ON "ausers" ("room_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_reset_password_token" ON "ausers" ("reset_password_token")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_email" ON "ausers" ("email")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","created_at","updated_at","room_id")
+                     SELECT "id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","created_at","updated_at","room_id" FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer NOT NULL PRIMARY KEY, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar DEFAULT NULL, "reset_password_sent_at" datetime(6) DEFAULT NULL, "remember_created_at" datetime(6) DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "room_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_ec0e059914"
+FOREIGN KEY ("room_id")
+  REFERENCES "rooms" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_users_on_room_id" ON "users" ("room_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","created_at","updated_at","room_id")
+                     SELECT "id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","created_at","updated_at","room_id" FROM "ausers"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "ausers"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220126001952"]]
+  [1m[36mTRANSACTION (7.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-02-19 13:19:23.260650"], ["updated_at", "2024-02-19 13:19:23.260650"]]
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2024-02-19 14:19:55 +0100
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1230)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 189)
+  Rendered layout layouts/application.html.erb (Duration: 194.8ms | Allocations: 107652)
+Completed 200 OK in 210ms (Views: 198.8ms | ActiveRecord: 0.0ms | Allocations: 118237)
+
+
+Started GET "/users/sign_up" for ::1 at 2024-02-19 14:19:57 +0100
+Processing by Users::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 1.2ms | Allocations: 279)
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 722)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 80.4ms | Allocations: 17496)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 13)
+  Rendered layout layouts/application.html.erb (Duration: 82.9ms | Allocations: 20447)
+Completed 200 OK in 96ms (Views: 85.6ms | ActiveRecord: 1.0ms | Allocations: 29037)
+
+
+Started POST "/users" for ::1 at 2024-02-19 14:20:03 +0100
+Processing by Users::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"sdf@sdf.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sdf@sdf.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "room_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["email", "sdf@sdf.com"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2024-02-19 13:20:03.245325"], ["updated_at", "2024-02-19 13:20:03.245325"], ["room_id", nil]]
+  [1m[36mTRANSACTION (6.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "User"], ["name", "pfp"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:25:in `add_default_pfp'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:27:in `add_default_pfp'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "User"], ["name", "pfp"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `add_default_pfp'
+  [1m[36mActiveStorage::Blob Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["key", "f3kobhq5az0tjycxlg6yjac4kxvp"], ["filename", "default_profile.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 219542], ["checksum", "ch15gqBypZ1ggGzfGnPX+w=="], ["created_at", "2024-02-19 13:20:03.293817"]]
+  ↳ app/models/user.rb:27:in `add_default_pfp'
+  [1m[36mActiveStorage::Attachment Create (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "pfp"], ["record_type", "User"], ["record_id", 1], ["blob_id", 1], ["created_at", "2024-02-19 13:20:03.295526"]]
+  ↳ app/models/user.rb:27:in `add_default_pfp'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-02-19 13:20:03.296806"], ["id", 1]]
+  ↳ app/models/user.rb:27:in `add_default_pfp'
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:27:in `add_default_pfp'
+[36m  Disk Storage (1.1ms) [0m[32mUploaded file to key: f3kobhq5az0tjycxlg6yjac4kxvp (checksum: ch15gqBypZ1ggGzfGnPX+w==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 4ca113a1-62a4-4d4f-9464-442cc54cc7a3) to Async(default) with arguments: #<GlobalID:0x00005556de397210 @uri=#<URI::GID gid://chatroom/ActiveStorage::Blob/1>>
+Redirected to http://localhost:3000/user/1
+Completed 302 Found in 249ms (ActiveRecord: 13.9ms | Allocations: 52589)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [4ca113a1-62a4-4d4f-9464-442cc54cc7a3]   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [4ca113a1-62a4-4d4f-9464-442cc54cc7a3] Performing ActiveStorage::AnalyzeJob (Job ID: 4ca113a1-62a4-4d4f-9464-442cc54cc7a3) from Async(default) enqueued at 2024-02-19T13:20:03Z with arguments: #<GlobalID:0x00005556de3de7f0 @uri=#<URI::GID gid://chatroom/ActiveStorage::Blob/1>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [4ca113a1-62a4-4d4f-9464-442cc54cc7a3] [36m  Disk Storage (0.5ms) [0m[34mDownloaded file from key: f3kobhq5az0tjycxlg6yjac4kxvp[0m
+Started GET "/user/1" for ::1 at 2024-02-19 14:20:03 +0100
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."name" = ? ORDER BY "rooms"."id" ASC LIMIT ?[0m  [["name", "private_1_1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/room.rb:14:in `create_private_room'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "private_1_1"], ["LIMIT", 1]]
+  ↳ app/models/room.rb:14:in `create_private_room'
+  [1m[36mRoom Create (0.1ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "is_private", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "private_1_1"], ["is_private", 1], ["created_at", "2024-02-19 13:20:03.470829"], ["updated_at", "2024-02-19 13:20:03.470829"]]
+  ↳ app/models/room.rb:14:in `create_private_room'
+  [1m[36mTRANSACTION (6.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/room.rb:14:in `create_private_room'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/room.rb:16:in `block in create_private_room'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/room.rb:16:in `block in create_private_room'
+  [1m[36mParticipant Create (0.2ms)[0m  [1m[32mINSERT INTO "participants" ("user_id", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["room_id", 1], ["created_at", "2024-02-19 13:20:03.500701"], ["updated_at", "2024-02-19 13:20:03.500701"]]
+  ↳ app/models/room.rb:16:in `block in create_private_room'
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/room.rb:16:in `block in create_private_room'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/room.rb:16:in `block in create_private_room'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/room.rb:16:in `block in create_private_room'
+  [1m[36mParticipant Create (0.3ms)[0m  [1m[32mINSERT INTO "participants" ("user_id", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["room_id", 1], ["created_at", "2024-02-19 13:20:03.511522"], ["updated_at", "2024-02-19 13:20:03.511522"]]
+  ↳ app/models/room.rb:16:in `block in create_private_room'
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/room.rb:16:in `block in create_private_room'
+[ActiveJob] [ActiveStorage::AnalyzeJob] [4ca113a1-62a4-4d4f-9464-442cc54cc7a3]   [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [4ca113a1-62a4-4d4f-9464-442cc54cc7a3]   [1m[36mActiveStorage::Blob Update (0.3ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"width\":1586,\"height\":1983,\"analyzed\":true}"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[ActiveJob] [ActiveStorage::AnalyzeJob] [4ca113a1-62a4-4d4f-9464-442cc54cc7a3]   [1m[36mTRANSACTION (5.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "room_id" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-02-19 13:20:03.522303"], ["room_id", 1], ["id", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [4ca113a1-62a4-4d4f-9464-442cc54cc7a3] Performed ActiveStorage::AnalyzeJob (Job ID: 4ca113a1-62a4-4d4f-9464-442cc54cc7a3) from Async(default) in 214.47ms
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mTRANSACTION (6.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "User"], ["name", "pfp"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:25:in `add_default_pfp'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 1]]
+  ↳ app/views/rooms/index.html.erb:8
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 29)
+  Rendered layouts/_new_room_form.html.erb (Duration: 1.4ms | Allocations: 814)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:16
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 13)
+  [1m[36mMessage Load (0.1ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = ? ORDER BY "messages"."created_at" ASC[0m  [["room_id", 1]]
+  ↳ app/views/rooms/index.html.erb:30
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 13)
+  Rendered layouts/_new_message_form.html.erb (Duration: 1.4ms | Allocations: 612)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 9.9ms | Allocations: 5585)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 13)
+  Rendered layout layouts/application.html.erb (Duration: 12.9ms | Allocations: 8462)
+Completed 200 OK in 211ms (Views: 14.2ms | ActiveRecord: 28.7ms | Allocations: 74136)
+
+
+Started GET "/cable" for ::1 at 2024-02-19 14:20:03 +0100
+Started GET "/cable/" [WebSocket] for ::1 at 2024-02-19 14:20:03 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/cable" for ::1 at 2024-02-19 14:20:35 +0100
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/cable/" [WebSocket] for ::1 at 2024-02-19 14:20:35 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/" for 127.0.0.1 at 2024-02-19 14:22:56 +0100
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1436)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 187)
+  Rendered layout layouts/application.html.erb (Duration: 73.5ms | Allocations: 40807)
+Completed 200 OK in 83ms (Views: 75.8ms | ActiveRecord: 0.0ms | Allocations: 49869)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-02-19 14:22:58 +0100
+Processing by Users::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.4ms | Allocations: 279)
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 719)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 14.2ms | Allocations: 13394)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 13)
+  Rendered layout layouts/application.html.erb (Duration: 17.0ms | Allocations: 16323)
+Completed 200 OK in 25ms (Views: 18.1ms | ActiveRecord: 0.6ms | Allocations: 24842)
+
+
+Started POST "/users" for 127.0.0.1 at 2024-02-19 14:23:04 +0100
+Processing by Users::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"sdf@sdf.coms", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sdf@sdf.coms"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "room_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["email", "sdf@sdf.coms"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2024-02-19 13:23:04.779233"], ["updated_at", "2024-02-19 13:23:04.779233"], ["room_id", nil]]
+  [1m[36mTRANSACTION (6.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "User"], ["name", "pfp"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:25:in `add_default_pfp'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:27:in `add_default_pfp'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "User"], ["name", "pfp"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `add_default_pfp'
+  [1m[36mActiveStorage::Blob Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["key", "b9ke4kqns0m66em5xhhsyr6qtdjm"], ["filename", "default_profile.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 219542], ["checksum", "ch15gqBypZ1ggGzfGnPX+w=="], ["created_at", "2024-02-19 13:23:04.815925"]]
+  ↳ app/models/user.rb:27:in `add_default_pfp'
+  [1m[36mActiveStorage::Attachment Create (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "pfp"], ["record_type", "User"], ["record_id", 2], ["blob_id", 2], ["created_at", "2024-02-19 13:23:04.817553"]]
+  ↳ app/models/user.rb:27:in `add_default_pfp'
+  [1m[36mUser Update (0.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-02-19 13:23:04.818606"], ["id", 2]]
+  ↳ app/models/user.rb:27:in `add_default_pfp'
+  [1m[36mTRANSACTION (5.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:27:in `add_default_pfp'
+[36m  Disk Storage (1.3ms) [0m[32mUploaded file to key: b9ke4kqns0m66em5xhhsyr6qtdjm (checksum: ch15gqBypZ1ggGzfGnPX+w==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 71e23bac-b442-4f83-8e9d-d48ef7837b78) to Async(default) with arguments: #<GlobalID:0x00007f06fd132058 @uri=#<URI::GID gid://chatroom/ActiveStorage::Blob/2>>
+Redirected to http://127.0.0.1:3000/user/2
+Completed 302 Found in 232ms (ActiveRecord: 14.2ms | Allocations: 47983)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [71e23bac-b442-4f83-8e9d-d48ef7837b78]   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [71e23bac-b442-4f83-8e9d-d48ef7837b78] Performing ActiveStorage::AnalyzeJob (Job ID: 71e23bac-b442-4f83-8e9d-d48ef7837b78) from Async(default) enqueued at 2024-02-19T13:23:04Z with arguments: #<GlobalID:0x00007f06fd1f4db0 @uri=#<URI::GID gid://chatroom/ActiveStorage::Blob/2>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [71e23bac-b442-4f83-8e9d-d48ef7837b78] [36m  Disk Storage (0.3ms) [0m[34mDownloaded file from key: b9ke4kqns0m66em5xhhsyr6qtdjm[0m
+Started GET "/user/2" for 127.0.0.1 at 2024-02-19 14:23:04 +0100
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."name" = ? ORDER BY "rooms"."id" ASC LIMIT ?[0m  [["name", "private_2_2"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/room.rb:14:in `create_private_room'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "private_2_2"], ["LIMIT", 1]]
+  ↳ app/models/room.rb:14:in `create_private_room'
+  [1m[36mRoom Create (0.7ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "is_private", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "private_2_2"], ["is_private", 1], ["created_at", "2024-02-19 13:23:04.934385"], ["updated_at", "2024-02-19 13:23:04.934385"]]
+  ↳ app/models/room.rb:14:in `create_private_room'
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/room.rb:14:in `create_private_room'
+[ActiveJob] [ActiveStorage::AnalyzeJob] [71e23bac-b442-4f83-8e9d-d48ef7837b78]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [71e23bac-b442-4f83-8e9d-d48ef7837b78]   [1m[36mActiveStorage::Blob Update (0.2ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"width\":1586,\"height\":1983,\"analyzed\":true}"], ["id", 2]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [71e23bac-b442-4f83-8e9d-d48ef7837b78]   [1m[36mTRANSACTION (5.6ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [71e23bac-b442-4f83-8e9d-d48ef7837b78] Performed ActiveStorage::AnalyzeJob (Job ID: 71e23bac-b442-4f83-8e9d-d48ef7837b78) from Async(default) in 115.87ms
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/room.rb:16:in `block in create_private_room'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/room.rb:16:in `block in create_private_room'
+  [1m[36mParticipant Create (0.2ms)[0m  [1m[32mINSERT INTO "participants" ("user_id", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 2], ["room_id", 2], ["created_at", "2024-02-19 13:23:04.964356"], ["updated_at", "2024-02-19 13:23:04.964356"]]
+  ↳ app/models/room.rb:16:in `block in create_private_room'
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/room.rb:16:in `block in create_private_room'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/room.rb:16:in `block in create_private_room'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/room.rb:16:in `block in create_private_room'
+  [1m[36mParticipant Create (0.6ms)[0m  [1m[32mINSERT INTO "participants" ("user_id", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 2], ["room_id", 2], ["created_at", "2024-02-19 13:23:04.974400"], ["updated_at", "2024-02-19 13:23:04.974400"]]
+  ↳ app/models/room.rb:16:in `block in create_private_room'
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/room.rb:16:in `block in create_private_room'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "room_id" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-02-19 13:23:04.982704"], ["room_id", 2], ["id", 2]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "User"], ["name", "pfp"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:25:in `add_default_pfp'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 2]]
+  ↳ app/views/rooms/index.html.erb:8
+  [1m[36mParticipant Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "participants" WHERE "participants"."room_id" = ? AND "participants"."user_id" = ? LIMIT ?[0m  [["room_id", 2], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/room.rb:22:in `participant?'
+  [1m[36mParticipant Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "participants" WHERE "participants"."user_id" = ? AND "participants"."room_id" = ? LIMIT ?[0m  [["user_id", 1], ["room_id", 2], ["LIMIT", 1]]
+  ↳ app/models/room.rb:23:in `participant?'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "User"], ["name", "pfp"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mActiveStorage::VariantRecord Load (0.1ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = ? AND "active_storage_variant_records"."variation_digest" = ? LIMIT ?[0m  [["blob_id", 1], ["variation_digest", "2LUGSpqeAxE2FTbZR5KExFsl26Y="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+[36m  Disk Storage (0.2ms) [0m[34mDownloaded file from key: f3kobhq5az0tjycxlg6yjac4kxvp[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mActiveStorage::VariantRecord Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_variant_records" ("blob_id", "variation_digest") VALUES (?, ?)[0m  [["blob_id", 1], ["variation_digest", "2LUGSpqeAxE2FTbZR5KExFsl26Y="]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "ActiveStorage::VariantRecord"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "ActiveStorage::VariantRecord"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mActiveStorage::Blob Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["key", "taidql70t1u6vt9mvseunb4j3twy"], ["filename", "default_profile.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 1859], ["checksum", "8QFoFhw4ZT2l8d6f0HWMug=="], ["created_at", "2024-02-19 13:23:05.088918"]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mActiveStorage::Attachment Create (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "image"], ["record_type", "ActiveStorage::VariantRecord"], ["record_id", 1], ["blob_id", 3], ["created_at", "2024-02-19 13:23:05.091563"]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mTRANSACTION (6.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:19:in `chat_pfp'
+[36m  Disk Storage (0.8ms) [0m[32mUploaded file to key: taidql70t1u6vt9mvseunb4j3twy (checksum: 8QFoFhw4ZT2l8d6f0HWMug==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 410e5f70-60bc-425c-b2c5-555256b00bd5) to Async(default) with arguments: #<GlobalID:0x00007f06fd0d5ad8 @uri=#<URI::GID gid://chatroom/ActiveStorage::Blob/3>>
+  Rendered collection of users/_user.html.erb [1 times] (Duration: 97.5ms | Allocations: 34506)
+  Rendered layouts/_new_room_form.html.erb (Duration: 2.3ms | Allocations: 788)
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:16
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 25)
+  [1m[36mMessage Load (0.1ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = ? ORDER BY "messages"."created_at" ASC[0m  [["room_id", 2]]
+  ↳ app/views/rooms/index.html.erb:30
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 13)
+  Rendered layouts/_new_message_form.html.erb (Duration: 1.9ms | Allocations: 640)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 110.1ms | Allocations: 40085)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 13)
+  Rendered layout layouts/application.html.erb (Duration: 117.6ms | Allocations: 43122)
+Completed 200 OK in 213ms (Views: 111.0ms | ActiveRecord: 36.2ms | Allocations: 84586)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [410e5f70-60bc-425c-b2c5-555256b00bd5]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [410e5f70-60bc-425c-b2c5-555256b00bd5] Performing ActiveStorage::AnalyzeJob (Job ID: 410e5f70-60bc-425c-b2c5-555256b00bd5) from Async(default) enqueued at 2024-02-19T13:23:05Z with arguments: #<GlobalID:0x00007f06fcfae948 @uri=#<URI::GID gid://chatroom/ActiveStorage::Blob/3>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [410e5f70-60bc-425c-b2c5-555256b00bd5] [36m  Disk Storage (0.1ms) [0m[34mDownloaded file from key: taidql70t1u6vt9mvseunb4j3twy[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [410e5f70-60bc-425c-b2c5-555256b00bd5]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [410e5f70-60bc-425c-b2c5-555256b00bd5]   [1m[36mActiveStorage::Blob Update (0.3ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"width\":40,\"height\":50,\"analyzed\":true}"], ["id", 3]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [410e5f70-60bc-425c-b2c5-555256b00bd5]   [1m[36mTRANSACTION (5.8ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [410e5f70-60bc-425c-b2c5-555256b00bd5] Performed ActiveStorage::AnalyzeJob (Job ID: 410e5f70-60bc-425c-b2c5-555256b00bd5) from Async(default) in 16.83ms
+Started GET "/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--1396a341d125239026de0ae463db8683a196d7e2/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVRkcE53PT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--b0c6aa457c79a049f876bb6956797bb6bf8c06a8/default_profile.jpg" for 127.0.0.1 at 2024-02-19 14:23:05 +0100
+Started GET "/cable" for 127.0.0.1 at 2024-02-19 14:23:05 +0100
+Processing by ActiveStorage::Representations::RedirectController#show as JPEG
+  Parameters: {"signed_blob_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--1396a341d125239026de0ae463db8683a196d7e2", "variation_key"=>"[FILTERED]", "filename"=>"default_profile"}
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mActiveStorage::VariantRecord Load (0.2ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = ? AND "active_storage_variant_records"."variation_digest" = ? LIMIT ?[0m  [["blob_id", 1], ["variation_digest", "2LUGSpqeAxE2FTbZR5KExFsl26Y="], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "ActiveStorage::VariantRecord"], ["name", "image"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+[36m  Disk Storage (1.3ms) [0m[34mGenerated URL for file at key: taidql70t1u6vt9mvseunb4j3twy (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhkR0ZwWkhGc056QjBNWFUyZG5RNWJYWnpaWFZ1WWpScU0zUjNlUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVVdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbFptRjFiSFJmY0hKdlptbHNaUzVxY0djaU95Qm1hV3hsYm1GdFpTbzlWVlJHTFRnbkoyUmxabUYxYkhSZmNISnZabWxzWlM1cWNHY0dPd1pVT2hGamIyNTBaVzUwWDNSNWNHVkpJZzlwYldGblpTOXFjR1ZuQmpzR1ZEb1JjMlZ5ZG1salpWOXVZVzFsT2dwc2IyTmhiQT09IiwiZXhwIjoiMjAyNC0wMi0xOVQxMzoyODowNS4yMThaIiwicHVyIjoiYmxvYl9rZXkifX0=--8ed7e8ad2ae52035d1fb3f19dc97d74f4cab36b5/default_profile.jpg)[0m
+Redirected to http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhkR0ZwWkhGc056QjBNWFUyZG5RNWJYWnpaWFZ1WWpScU0zUjNlUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVVdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbFptRjFiSFJmY0hKdlptbHNaUzVxY0djaU95Qm1hV3hsYm1GdFpTbzlWVlJHTFRnbkoyUmxabUYxYkhSZmNISnZabWxzWlM1cWNHY0dPd1pVT2hGamIyNTBaVzUwWDNSNWNHVkpJZzlwYldGblpTOXFjR1ZuQmpzR1ZEb1JjMlZ5ZG1salpWOXVZVzFsT2dwc2IyTmhiQT09IiwiZXhwIjoiMjAyNC0wMi0xOVQxMzoyODowNS4yMThaIiwicHVyIjoiYmxvYl9rZXkifX0=--8ed7e8ad2ae52035d1fb3f19dc97d74f4cab36b5/default_profile.jpg
+Completed 302 Found in 22ms (ActiveRecord: 0.7ms | Allocations: 8305)
+
+
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2024-02-19 14:23:05 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhkR0ZwWkhGc056QjBNWFUyZG5RNWJYWnpaWFZ1WWpScU0zUjNlUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVVdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbFptRjFiSFJmY0hKdlptbHNaUzVxY0djaU95Qm1hV3hsYm1GdFpTbzlWVlJHTFRnbkoyUmxabUYxYkhSZmNISnZabWxzWlM1cWNHY0dPd1pVT2hGamIyNTBaVzUwWDNSNWNHVkpJZzlwYldGblpTOXFjR1ZuQmpzR1ZEb1JjMlZ5ZG1salpWOXVZVzFsT2dwc2IyTmhiQT09IiwiZXhwIjoiMjAyNC0wMi0xOVQxMzoyODowNS4yMThaIiwicHVyIjoiYmxvYl9rZXkifX0=--8ed7e8ad2ae52035d1fb3f19dc97d74f4cab36b5/default_profile.jpg" for 127.0.0.1 at 2024-02-19 14:23:05 +0100
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"default_profile"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 385)
+
+
+Started GET "/" for ::1 at 2024-02-19 14:31:08 +0100
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1270)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | Allocations: 187)
+  Rendered layout layouts/application.html.erb (Duration: 78.8ms | Allocations: 40532)
+Completed 200 OK in 90ms (Views: 82.0ms | ActiveRecord: 0.0ms | Allocations: 49594)
+
+
+Started GET "/users/sign_up" for ::1 at 2024-02-19 14:31:09 +0100
+Processing by Users::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.4ms | Allocations: 279)
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 719)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 18.2ms | Allocations: 13394)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 13)
+  Rendered layout layouts/application.html.erb (Duration: 21.4ms | Allocations: 16323)
+Completed 200 OK in 31ms (Views: 22.6ms | ActiveRecord: 0.8ms | Allocations: 24678)
+
+
+Started POST "/users" for ::1 at 2024-02-19 14:31:17 +0100
+Processing by Users::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"sdf@sdf.comsss", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sdf@sdf.comsss"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "room_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["email", "sdf@sdf.comsss"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2024-02-19 13:31:17.792769"], ["updated_at", "2024-02-19 13:31:17.792769"], ["room_id", nil]]
+  [1m[36mTRANSACTION (9.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "User"], ["name", "pfp"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:25:in `add_default_pfp'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:27:in `add_default_pfp'
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "User"], ["name", "pfp"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:27:in `add_default_pfp'
+  [1m[36mActiveStorage::Blob Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["key", "g9yy5ofq04ww4oq3dz2srlm9aqui"], ["filename", "default_profile.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 219542], ["checksum", "ch15gqBypZ1ggGzfGnPX+w=="], ["created_at", "2024-02-19 13:31:17.844627"]]
+  ↳ app/models/user.rb:27:in `add_default_pfp'
+  [1m[36mActiveStorage::Attachment Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "pfp"], ["record_type", "User"], ["record_id", 3], ["blob_id", 4], ["created_at", "2024-02-19 13:31:17.847033"]]
+  ↳ app/models/user.rb:27:in `add_default_pfp'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-02-19 13:31:17.848927"], ["id", 3]]
+  ↳ app/models/user.rb:27:in `add_default_pfp'
+  [1m[36mTRANSACTION (7.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:27:in `add_default_pfp'
+[36m  Disk Storage (1.2ms) [0m[32mUploaded file to key: g9yy5ofq04ww4oq3dz2srlm9aqui (checksum: ch15gqBypZ1ggGzfGnPX+w==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: cb3d6989-97e1-428e-8547-f72712b8482f) to Async(default) with arguments: #<GlobalID:0x00007f8b91131a90 @uri=#<URI::GID gid://chatroom/ActiveStorage::Blob/4>>
+Redirected to http://localhost:3000/user/3
+Completed 302 Found in 265ms (ActiveRecord: 19.5ms | Allocations: 48002)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [cb3d6989-97e1-428e-8547-f72712b8482f]   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [cb3d6989-97e1-428e-8547-f72712b8482f] Performing ActiveStorage::AnalyzeJob (Job ID: cb3d6989-97e1-428e-8547-f72712b8482f) from Async(default) enqueued at 2024-02-19T13:31:17Z with arguments: #<GlobalID:0x00007f8b911e4960 @uri=#<URI::GID gid://chatroom/ActiveStorage::Blob/4>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [cb3d6989-97e1-428e-8547-f72712b8482f] [36m  Disk Storage (0.5ms) [0m[34mDownloaded file from key: g9yy5ofq04ww4oq3dz2srlm9aqui[0m
+Started GET "/user/3" for ::1 at 2024-02-19 14:31:17 +0100
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"3"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."name" = ? ORDER BY "rooms"."id" ASC LIMIT ?[0m  [["name", "private_3_3"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `show'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/room.rb:14:in `create_private_room'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "private_3_3"], ["LIMIT", 1]]
+  ↳ app/models/room.rb:14:in `create_private_room'
+  [1m[36mRoom Create (0.2ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "is_private", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "private_3_3"], ["is_private", 1], ["created_at", "2024-02-19 13:31:17.945592"], ["updated_at", "2024-02-19 13:31:17.945592"]]
+  ↳ app/models/room.rb:14:in `create_private_room'
+  [1m[36mTRANSACTION (7.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/room.rb:14:in `create_private_room'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/room.rb:16:in `block in create_private_room'
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/room.rb:16:in `block in create_private_room'
+  [1m[36mParticipant Create (0.2ms)[0m  [1m[32mINSERT INTO "participants" ("user_id", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 3], ["room_id", 3], ["created_at", "2024-02-19 13:31:18.059795"], ["updated_at", "2024-02-19 13:31:18.059795"]]
+  ↳ app/models/room.rb:16:in `block in create_private_room'
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/room.rb:16:in `block in create_private_room'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/room.rb:16:in `block in create_private_room'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/room.rb:16:in `block in create_private_room'
+  [1m[36mParticipant Create (0.4ms)[0m  [1m[32mINSERT INTO "participants" ("user_id", "room_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 3], ["room_id", 3], ["created_at", "2024-02-19 13:31:18.070104"], ["updated_at", "2024-02-19 13:31:18.070104"]]
+  ↳ app/models/room.rb:16:in `block in create_private_room'
+  [1m[36mTRANSACTION (7.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/room.rb:16:in `block in create_private_room'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "room_id" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-02-19 13:31:18.082720"], ["room_id", 3], ["id", 3]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[ActiveJob] [ActiveStorage::AnalyzeJob] [cb3d6989-97e1-428e-8547-f72712b8482f]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [cb3d6989-97e1-428e-8547-f72712b8482f]   [1m[36mActiveStorage::Blob Update (0.2ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"width\":1586,\"height\":1983,\"analyzed\":true}"], ["id", 4]]
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "User"], ["name", "pfp"], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [cb3d6989-97e1-428e-8547-f72712b8482f]   [1m[36mTRANSACTION (6.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:25:in `add_default_pfp'
+[ActiveJob] [ActiveStorage::AnalyzeJob] [cb3d6989-97e1-428e-8547-f72712b8482f] Performed ActiveStorage::AnalyzeJob (Job ID: cb3d6989-97e1-428e-8547-f72712b8482f) from Async(default) in 233.22ms
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 3]]
+  ↳ app/views/rooms/index.html.erb:8
+  [1m[36mParticipant Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "participants" WHERE "participants"."room_id" = ? AND "participants"."user_id" = ? LIMIT ?[0m  [["room_id", 3], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/room.rb:22:in `participant?'
+  [1m[36mParticipant Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "participants" WHERE "participants"."user_id" = ? AND "participants"."room_id" = ? LIMIT ?[0m  [["user_id", 1], ["room_id", 3], ["LIMIT", 1]]
+  ↳ app/models/room.rb:23:in `participant?'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "User"], ["name", "pfp"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mActiveStorage::VariantRecord Load (0.1ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = ? AND "active_storage_variant_records"."variation_digest" = ? LIMIT ?[0m  [["blob_id", 1], ["variation_digest", "2LUGSpqeAxE2FTbZR5KExFsl26Y="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mParticipant Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "participants" WHERE "participants"."room_id" = ? AND "participants"."user_id" = ? LIMIT ?[0m  [["room_id", 3], ["user_id", 2], ["LIMIT", 1]]
+  ↳ app/models/room.rb:22:in `participant?'
+  [1m[36mParticipant Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "participants" WHERE "participants"."user_id" = ? AND "participants"."room_id" = ? LIMIT ?[0m  [["user_id", 2], ["room_id", 3], ["LIMIT", 1]]
+  ↳ app/models/room.rb:23:in `participant?'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "User"], ["name", "pfp"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mActiveStorage::Blob Load (0.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mActiveStorage::VariantRecord Load (0.2ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = ? AND "active_storage_variant_records"."variation_digest" = ? LIMIT ?[0m  [["blob_id", 2], ["variation_digest", "2LUGSpqeAxE2FTbZR5KExFsl26Y="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+[36m  Disk Storage (1.8ms) [0m[34mDownloaded file from key: b9ke4kqns0m66em5xhhsyr6qtdjm[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mActiveStorage::VariantRecord Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_variant_records" ("blob_id", "variation_digest") VALUES (?, ?)[0m  [["blob_id", 2], ["variation_digest", "2LUGSpqeAxE2FTbZR5KExFsl26Y="]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "ActiveStorage::VariantRecord"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "ActiveStorage::VariantRecord"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mActiveStorage::Blob Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["key", "e00tidkzymbwmic68gemm1m46db0"], ["filename", "default_profile.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 1859], ["checksum", "8QFoFhw4ZT2l8d6f0HWMug=="], ["created_at", "2024-02-19 13:31:18.213767"]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mActiveStorage::Attachment Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "image"], ["record_type", "ActiveStorage::VariantRecord"], ["record_id", 2], ["blob_id", 5], ["created_at", "2024-02-19 13:31:18.215593"]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:19:in `chat_pfp'
+[36m  Disk Storage (0.9ms) [0m[32mUploaded file to key: e00tidkzymbwmic68gemm1m46db0 (checksum: 8QFoFhw4ZT2l8d6f0HWMug==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 80b5d07a-0b2b-4445-912e-0bd6638f2813) to Async(default) with arguments: #<GlobalID:0x00007f8b911685e0 @uri=#<URI::GID gid://chatroom/ActiveStorage::Blob/5>>
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 104.9ms | Allocations: 37941)
+  Rendered layouts/_new_room_form.html.erb (Duration: 2.0ms | Allocations: 780)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:16
+  Rendered collection of templates [0 times] (Duration: 0.1ms | Allocations: 25)
+  [1m[36mMessage Load (0.1ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = ? ORDER BY "messages"."created_at" ASC[0m  [["room_id", 3]]
+  ↳ app/views/rooms/index.html.erb:30
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 13)
+  Rendered layouts/_new_message_form.html.erb (Duration: 1.7ms | Allocations: 648)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 117.7ms | Allocations: 43553)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 13)
+  Rendered layout layouts/application.html.erb (Duration: 126.0ms | Allocations: 46606)
+Completed 200 OK in 352ms (Views: 119.3ms | ActiveRecord: 39.0ms | Allocations: 112501)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [80b5d07a-0b2b-4445-912e-0bd6638f2813]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [80b5d07a-0b2b-4445-912e-0bd6638f2813] Performing ActiveStorage::AnalyzeJob (Job ID: 80b5d07a-0b2b-4445-912e-0bd6638f2813) from Async(default) enqueued at 2024-02-19T13:31:18Z with arguments: #<GlobalID:0x00007f8b91042670 @uri=#<URI::GID gid://chatroom/ActiveStorage::Blob/5>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [80b5d07a-0b2b-4445-912e-0bd6638f2813] [36m  Disk Storage (0.1ms) [0m[34mDownloaded file from key: e00tidkzymbwmic68gemm1m46db0[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [80b5d07a-0b2b-4445-912e-0bd6638f2813]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [80b5d07a-0b2b-4445-912e-0bd6638f2813]   [1m[36mActiveStorage::Blob Update (0.3ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"width\":40,\"height\":50,\"analyzed\":true}"], ["id", 5]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [80b5d07a-0b2b-4445-912e-0bd6638f2813]   [1m[36mTRANSACTION (6.0ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [80b5d07a-0b2b-4445-912e-0bd6638f2813] Performed ActiveStorage::AnalyzeJob (Job ID: 80b5d07a-0b2b-4445-912e-0bd6638f2813) from Async(default) in 15.64ms
+Started GET "/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--1396a341d125239026de0ae463db8683a196d7e2/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVRkcE53PT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--b0c6aa457c79a049f876bb6956797bb6bf8c06a8/default_profile.jpg" for ::1 at 2024-02-19 14:31:18 +0100
+Started GET "/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--850cf3eb8a41607bb5f60e13a2977b89ed9076c1/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVRkcE53PT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--b0c6aa457c79a049f876bb6956797bb6bf8c06a8/default_profile.jpg" for ::1 at 2024-02-19 14:31:18 +0100
+Started GET "/cable" for ::1 at 2024-02-19 14:31:18 +0100
+Processing by ActiveStorage::Representations::RedirectController#show as JPEG
+Processing by ActiveStorage::Representations::RedirectController#show as JPEG
+  Parameters: {"signed_blob_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--1396a341d125239026de0ae463db8683a196d7e2", "variation_key"=>"[FILTERED]", "filename"=>"default_profile"}
+  Parameters: {"signed_blob_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--850cf3eb8a41607bb5f60e13a2977b89ed9076c1", "variation_key"=>"[FILTERED]", "filename"=>"default_profile"}
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mActiveStorage::VariantRecord Load (0.2ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = ? AND "active_storage_variant_records"."variation_digest" = ? LIMIT ?[0m  [["blob_id", 1], ["variation_digest", "2LUGSpqeAxE2FTbZR5KExFsl26Y="], ["LIMIT", 1]]
+  [1m[36mActiveStorage::VariantRecord Load (0.2ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = ? AND "active_storage_variant_records"."variation_digest" = ? LIMIT ?[0m  [["blob_id", 2], ["variation_digest", "2LUGSpqeAxE2FTbZR5KExFsl26Y="], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "ActiveStorage::VariantRecord"], ["name", "image"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "ActiveStorage::VariantRecord"], ["name", "image"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+[36m  Disk Storage (0.9ms) [0m[34mGenerated URL for file at key: taidql70t1u6vt9mvseunb4j3twy (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhkR0ZwWkhGc056QjBNWFUyZG5RNWJYWnpaWFZ1WWpScU0zUjNlUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVVdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbFptRjFiSFJmY0hKdlptbHNaUzVxY0djaU95Qm1hV3hsYm1GdFpTbzlWVlJHTFRnbkoyUmxabUYxYkhSZmNISnZabWxzWlM1cWNHY0dPd1pVT2hGamIyNTBaVzUwWDNSNWNHVkpJZzlwYldGblpTOXFjR1ZuQmpzR1ZEb1JjMlZ5ZG1salpWOXVZVzFsT2dwc2IyTmhiQT09IiwiZXhwIjoiMjAyNC0wMi0xOVQxMzozNjoxOC4zNjBaIiwicHVyIjoiYmxvYl9rZXkifX0=--43e3a56d3acc3090fc38f6f663926fe5fbc16144/default_profile.jpg)[0m
+[36m  Disk Storage (0.7ms) [0m[34mGenerated URL for file at key: e00tidkzymbwmic68gemm1m46db0 (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhaVEF3ZEdsa2EzcDViV0ozYldsak5qaG5aVzF0TVcwME5tUmlNQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVVdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbFptRjFiSFJmY0hKdlptbHNaUzVxY0djaU95Qm1hV3hsYm1GdFpTbzlWVlJHTFRnbkoyUmxabUYxYkhSZmNISnZabWxzWlM1cWNHY0dPd1pVT2hGamIyNTBaVzUwWDNSNWNHVkpJZzlwYldGblpTOXFjR1ZuQmpzR1ZEb1JjMlZ5ZG1salpWOXVZVzFsT2dwc2IyTmhiQT09IiwiZXhwIjoiMjAyNC0wMi0xOVQxMzozNjoxOC4zNjJaIiwicHVyIjoiYmxvYl9rZXkifX0=--7e7dc5626b918aaa59de4745564967ee96cd7de7/default_profile.jpg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhkR0ZwWkhGc056QjBNWFUyZG5RNWJYWnpaWFZ1WWpScU0zUjNlUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVVdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbFptRjFiSFJmY0hKdlptbHNaUzVxY0djaU95Qm1hV3hsYm1GdFpTbzlWVlJHTFRnbkoyUmxabUYxYkhSZmNISnZabWxzWlM1cWNHY0dPd1pVT2hGamIyNTBaVzUwWDNSNWNHVkpJZzlwYldGblpTOXFjR1ZuQmpzR1ZEb1JjMlZ5ZG1salpWOXVZVzFsT2dwc2IyTmhiQT09IiwiZXhwIjoiMjAyNC0wMi0xOVQxMzozNjoxOC4zNjBaIiwicHVyIjoiYmxvYl9rZXkifX0=--43e3a56d3acc3090fc38f6f663926fe5fbc16144/default_profile.jpg
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhaVEF3ZEdsa2EzcDViV0ozYldsak5qaG5aVzF0TVcwME5tUmlNQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVVdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbFptRjFiSFJmY0hKdlptbHNaUzVxY0djaU95Qm1hV3hsYm1GdFpTbzlWVlJHTFRnbkoyUmxabUYxYkhSZmNISnZabWxzWlM1cWNHY0dPd1pVT2hGamIyNTBaVzUwWDNSNWNHVkpJZzlwYldGblpTOXFjR1ZuQmpzR1ZEb1JjMlZ5ZG1salpWOXVZVzFsT2dwc2IyTmhiQT09IiwiZXhwIjoiMjAyNC0wMi0xOVQxMzozNjoxOC4zNjJaIiwicHVyIjoiYmxvYl9rZXkifX0=--7e7dc5626b918aaa59de4745564967ee96cd7de7/default_profile.jpg
+Completed 302 Found in 31ms (ActiveRecord: 0.6ms | Allocations: 13211)
+
+
+Completed 302 Found in 32ms (ActiveRecord: 0.5ms | Allocations: 13217)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhkR0ZwWkhGc056QjBNWFUyZG5RNWJYWnpaWFZ1WWpScU0zUjNlUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVVdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbFptRjFiSFJmY0hKdlptbHNaUzVxY0djaU95Qm1hV3hsYm1GdFpTbzlWVlJHTFRnbkoyUmxabUYxYkhSZmNISnZabWxzWlM1cWNHY0dPd1pVT2hGamIyNTBaVzUwWDNSNWNHVkpJZzlwYldGblpTOXFjR1ZuQmpzR1ZEb1JjMlZ5ZG1salpWOXVZVzFsT2dwc2IyTmhiQT09IiwiZXhwIjoiMjAyNC0wMi0xOVQxMzozNjoxOC4zNjBaIiwicHVyIjoiYmxvYl9rZXkifX0=--43e3a56d3acc3090fc38f6f663926fe5fbc16144/default_profile.jpg" for ::1 at 2024-02-19 14:31:18 +0100
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhaVEF3ZEdsa2EzcDViV0ozYldsak5qaG5aVzF0TVcwME5tUmlNQVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVVdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbFptRjFiSFJmY0hKdlptbHNaUzVxY0djaU95Qm1hV3hsYm1GdFpTbzlWVlJHTFRnbkoyUmxabUYxYkhSZmNISnZabWxzWlM1cWNHY0dPd1pVT2hGamIyNTBaVzUwWDNSNWNHVkpJZzlwYldGblpTOXFjR1ZuQmpzR1ZEb1JjMlZ5ZG1salpWOXVZVzFsT2dwc2IyTmhiQT09IiwiZXhwIjoiMjAyNC0wMi0xOVQxMzozNjoxOC4zNjJaIiwicHVyIjoiYmxvYl9rZXkifX0=--7e7dc5626b918aaa59de4745564967ee96cd7de7/default_profile.jpg" for ::1 at 2024-02-19 14:31:18 +0100
+Started GET "/cable/" [WebSocket] for ::1 at 2024-02-19 14:31:18 +0100
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"default_profile"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 437)
+
+
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"default_profile"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 301)
+
+
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from users
+Turbo::StreamsChannel is streaming from Z2lkOi8vY2hhdHJvb20vUm9vbS8z
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from rooms
+Started POST "/rooms/3/messages" for ::1 at 2024-02-19 14:31:25 +0100
+Processing by MessagesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "message"=>{"content"=>"sgddsgfdgfsdsgf"}, "commit"=>"Create Message", "room_id"=>"3"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/messages_controller.rb:3:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/messages_controller.rb:3:in `create'
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:3:in `create'
+  [1m[36mParticipant Load (0.1ms)[0m  [1m[34mSELECT "participants".* FROM "participants" WHERE "participants"."user_id" = ? AND "participants"."room_id" = ? ORDER BY "participants"."id" ASC LIMIT ?[0m  [["user_id", 3], ["room_id", 3], ["LIMIT", 1]]
+  ↳ app/models/message.rb:9:in `confirm_participant'
+  [1m[36mMessage Create (0.4ms)[0m  [1m[32mINSERT INTO "messages" ("user_id", "room_id", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 3], ["room_id", 3], ["content", "sgddsgfdgfsdsgf"], ["created_at", "2024-02-19 13:31:25.982795"], ["updated_at", "2024-02-19 13:31:25.982795"]]
+  ↳ app/controllers/messages_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (7.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/messages_controller.rb:3:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "User"], ["name", "pfp"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mActiveStorage::VariantRecord Load (0.2ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = ? AND "active_storage_variant_records"."variation_digest" = ? LIMIT ?[0m  [["blob_id", 4], ["variation_digest", "2LUGSpqeAxE2FTbZR5KExFsl26Y="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+[36m  Disk Storage (0.3ms) [0m[34mDownloaded file from key: g9yy5ofq04ww4oq3dz2srlm9aqui[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mActiveStorage::VariantRecord Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_variant_records" ("blob_id", "variation_digest") VALUES (?, ?)[0m  [["blob_id", 4], ["variation_digest", "2LUGSpqeAxE2FTbZR5KExFsl26Y="]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "ActiveStorage::VariantRecord"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "ActiveStorage::VariantRecord"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mActiveStorage::Blob Create (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["key", "nnhord8g8l1qzzknb22bdas342qj"], ["filename", "default_profile.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 1859], ["checksum", "8QFoFhw4ZT2l8d6f0HWMug=="], ["created_at", "2024-02-19 13:31:26.123857"]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mActiveStorage::Attachment Create (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "image"], ["record_type", "ActiveStorage::VariantRecord"], ["record_id", 3], ["blob_id", 6], ["created_at", "2024-02-19 13:31:26.125541"]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mTRANSACTION (7.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:19:in `chat_pfp'
+[36m  Disk Storage (0.8ms) [0m[32mUploaded file to key: nnhord8g8l1qzzknb22bdas342qj (checksum: 8QFoFhw4ZT2l8d6f0HWMug==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 5c884509-1927-42c1-8d39-1bef4e8180b8) to Async(default) with arguments: #<GlobalID:0x00007f8b806163f0 @uri=#<URI::GID gid://chatroom/ActiveStorage::Blob/6>>
+  Rendered messages/_message.html.erb (Duration: 143.4ms | Allocations: 15224)
+[ActionCable] Broadcasting to Z2lkOi8vY2hhdHJvb20vUm9vbS8z: "<turbo-stream action=\"append\" target=\"messages\"><template><div class=\"cont-3\">\n  <div class=\"message-box msg-3 \" >\n    <div class=\" d-flex align-items-center\">\n      <img class=\"chat_pfp\" src=\"http://example.org/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2...
+No template found for MessagesController#create, rendering head :no_content
+Completed 204 No Content in 167ms (ActiveRecord: 17.8ms | Allocations: 25951)
+
+
+Turbo::StreamsChannel transmitting "<turbo-stream action=\"append\" target=\"messages\"><template><div class=\"cont-3\">\n  <div class=\"message-box msg-3 \" >\n    <div class=\" d-flex align-items-center\">\n      <img class=\"chat_pfp\" src=\"http://example.org/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2... (via streamed from Z2lkOi8vY2hhdHJvb20vUm9vbS8z)
+[ActiveJob] [ActiveStorage::AnalyzeJob] [5c884509-1927-42c1-8d39-1bef4e8180b8]   [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [5c884509-1927-42c1-8d39-1bef4e8180b8] Performing ActiveStorage::AnalyzeJob (Job ID: 5c884509-1927-42c1-8d39-1bef4e8180b8) from Async(default) enqueued at 2024-02-19T13:31:26Z with arguments: #<GlobalID:0x00007f8b911dfe60 @uri=#<URI::GID gid://chatroom/ActiveStorage::Blob/6>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [5c884509-1927-42c1-8d39-1bef4e8180b8] [36m  Disk Storage (0.0ms) [0m[34mDownloaded file from key: nnhord8g8l1qzzknb22bdas342qj[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [5c884509-1927-42c1-8d39-1bef4e8180b8]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [5c884509-1927-42c1-8d39-1bef4e8180b8]   [1m[36mActiveStorage::Blob Update (0.2ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"width\":40,\"height\":50,\"analyzed\":true}"], ["id", 6]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [5c884509-1927-42c1-8d39-1bef4e8180b8]   [1m[36mTRANSACTION (6.1ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [5c884509-1927-42c1-8d39-1bef4e8180b8] Performed ActiveStorage::AnalyzeJob (Job ID: 5c884509-1927-42c1-8d39-1bef4e8180b8) from Async(default) in 13.8ms
+Started POST "/rooms" for ::1 at 2024-02-19 14:31:30 +0100
+Processing by RoomsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "room"=>{"name"=>"sds"}, "commit"=>"Create Room"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `create'
+  [1m[36mRoom Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rooms" WHERE "rooms"."name" = ? LIMIT ?[0m  [["name", "sds"], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:10:in `create'
+  [1m[36mRoom Create (0.2ms)[0m  [1m[32mINSERT INTO "rooms" ("name", "is_private", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "sds"], ["is_private", 0], ["created_at", "2024-02-19 13:31:30.588093"], ["updated_at", "2024-02-19 13:31:30.588093"]]
+  ↳ app/controllers/rooms_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (12.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:10:in `create'
+  Rendered rooms/_room.html.erb (Duration: 1.1ms | Allocations: 341)
+[ActionCable] Broadcasting to rooms: "<turbo-stream action=\"append\" target=\"rooms\"><template><a class=\"list-group-item room_list_item \" href=\"/rooms/4\">sds</a>\n</template></turbo-stream>"
+No template found for RoomsController#create, rendering head :no_content
+Completed 204 No Content in 21ms (ActiveRecord: 12.5ms | Allocations: 5512)
+
+
+Turbo::StreamsChannel transmitting "<turbo-stream action=\"append\" target=\"rooms\"><template><a class=\"list-group-item room_list_item \" href=\"/rooms/4\">sds</a>\n</template></turbo-stream>" (via streamed from rooms)
+Started GET "/rooms/4" for ::1 at 2024-02-19 14:31:31 +0100
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:14:in `show'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/rooms_controller.rb:15:in `show'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "room_id" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2024-02-19 13:31:31.422272"], ["room_id", 4], ["id", 3]]
+  ↳ app/controllers/rooms_controller.rb:15:in `show'
+  [1m[36mTRANSACTION (14.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/rooms_controller.rb:15:in `show'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "User"], ["name", "pfp"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:25:in `add_default_pfp'
+  Rendering layout layouts/application.html.erb
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" != ?[0m  [["id", 3]]
+  ↳ app/views/rooms/index.html.erb:8
+  [1m[36mParticipant Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "participants" WHERE "participants"."room_id" = ? AND "participants"."user_id" = ? LIMIT ?[0m  [["room_id", 4], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/models/room.rb:22:in `participant?'
+  [1m[36mParticipant Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "participants" WHERE "participants"."user_id" = ? AND "participants"."room_id" = ? LIMIT ?[0m  [["user_id", 1], ["room_id", 4], ["LIMIT", 1]]
+  ↳ app/models/room.rb:23:in `participant?'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 1], ["record_type", "User"], ["name", "pfp"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mActiveStorage::VariantRecord Load (0.1ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = ? AND "active_storage_variant_records"."variation_digest" = ? LIMIT ?[0m  [["blob_id", 1], ["variation_digest", "2LUGSpqeAxE2FTbZR5KExFsl26Y="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mParticipant Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "participants" WHERE "participants"."room_id" = ? AND "participants"."user_id" = ? LIMIT ?[0m  [["room_id", 4], ["user_id", 2], ["LIMIT", 1]]
+  ↳ app/models/room.rb:22:in `participant?'
+  [1m[36mParticipant Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "participants" WHERE "participants"."user_id" = ? AND "participants"."room_id" = ? LIMIT ?[0m  [["user_id", 2], ["room_id", 4], ["LIMIT", 1]]
+  ↳ app/models/room.rb:23:in `participant?'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "User"], ["name", "pfp"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mActiveStorage::VariantRecord Load (0.1ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = ? AND "active_storage_variant_records"."variation_digest" = ? LIMIT ?[0m  [["blob_id", 2], ["variation_digest", "2LUGSpqeAxE2FTbZR5KExFsl26Y="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  Rendered collection of users/_user.html.erb [2 times] (Duration: 15.9ms | Allocations: 8614)
+  Rendered layouts/_new_room_form.html.erb (Duration: 0.8ms | Allocations: 456)
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."is_private" = ?[0m  [["is_private", 0]]
+  ↳ app/views/rooms/index.html.erb:16
+  Rendered collection of rooms/_room.html.erb [1 times] (Duration: 0.7ms | Allocations: 284)
+  [1m[36mMessage Load (0.1ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = ? ORDER BY "messages"."created_at" ASC[0m  [["room_id", 4]]
+  ↳ app/views/rooms/index.html.erb:30
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 13)
+  Rendered layouts/_new_message_form.html.erb (Duration: 0.7ms | Allocations: 359)
+  Rendered rooms/index.html.erb within layouts/application (Duration: 22.6ms | Allocations: 12389)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 13)
+  Rendered layout layouts/application.html.erb (Duration: 25.3ms | Allocations: 15268)
+Completed 200 OK in 49ms (Views: 24.9ms | ActiveRecord: 16.3ms | Allocations: 21714)
+
+
+Unsubscribing from channel: {"channel":"Turbo::StreamsChannel","signed_stream_name":"InVzZXJzIg==--ba9077c2cd156416a85135fc1aca12c1001f38f78109efc8769bf1aaa488fd7a"}
+Turbo::StreamsChannel stopped streaming from users
+Unsubscribing from channel: {"channel":"Turbo::StreamsChannel","signed_stream_name":"InJvb21zIg==--74914ebde2d38acbed724cb00f75052cfb20428166d157404aafa34cbf6f22d3"}
+Turbo::StreamsChannel stopped streaming from rooms
+Unsubscribing from channel: {"channel":"Turbo::StreamsChannel","signed_stream_name":"IloybGtPaTh2WTJoaGRISnZiMjB2VW05dmJTOHoi--ab1b2bcee5d0e1095ad258cba5d675b59e0ddb44b3f04da9e0475393f799d728"}
+Turbo::StreamsChannel stopped streaming from Z2lkOi8vY2hhdHJvb20vUm9vbS8z
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from users
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from rooms
+Turbo::StreamsChannel is transmitting the subscription confirmation
+Turbo::StreamsChannel is streaming from Z2lkOi8vY2hhdHJvb20vUm9vbS80
+Started POST "/rooms/4/messages" for ::1 at 2024-02-19 14:31:33 +0100
+Processing by MessagesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "message"=>{"content"=>"sddsddsd"}, "commit"=>"Create Message", "room_id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/messages_controller.rb:3:in `create'
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/messages_controller.rb:3:in `create'
+  [1m[36mMessage Create (0.6ms)[0m  [1m[32mINSERT INTO "messages" ("user_id", "room_id", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 3], ["room_id", 4], ["content", "sddsddsd"], ["created_at", "2024-02-19 13:31:33.560417"], ["updated_at", "2024-02-19 13:31:33.560417"]]
+  ↳ app/controllers/messages_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (9.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/messages_controller.rb:3:in `create'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "User"], ["name", "pfp"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  [1m[36mActiveStorage::VariantRecord Load (0.1ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = ? AND "active_storage_variant_records"."variation_digest" = ? LIMIT ?[0m  [["blob_id", 4], ["variation_digest", "2LUGSpqeAxE2FTbZR5KExFsl26Y="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:19:in `chat_pfp'
+  Rendered messages/_message.html.erb (Duration: 7.9ms | Allocations: 2769)
+[ActionCable] Broadcasting to Z2lkOi8vY2hhdHJvb20vUm9vbS80: "<turbo-stream action=\"append\" target=\"messages\"><template><div class=\"cont-3\">\n  <div class=\"message-box msg-3 \" >\n    <div class=\" d-flex align-items-center\">\n      <img class=\"chat_pfp\" src=\"http://example.org/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2...
+No template found for MessagesController#create, rendering head :no_content
+Completed 204 No Content in 38ms (ActiveRecord: 10.9ms | Allocations: 7594)
+
+
+Turbo::StreamsChannel transmitting "<turbo-stream action=\"append\" target=\"messages\"><template><div class=\"cont-3\">\n  <div class=\"message-box msg-3 \" >\n    <div class=\" d-flex align-items-center\">\n      <img class=\"chat_pfp\" src=\"http://example.org/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2... (via streamed from Z2lkOi8vY2hhdHJvb20vUm9vbS80)
+Started GET "/" for ::1 at 2024-02-19 14:31:39 +0100
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:5
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "User"], ["name", "pfp"], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:9
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:15:in `pfp_thumbnail'
+  [1m[36mActiveStorage::VariantRecord Load (0.2ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = ? AND "active_storage_variant_records"."variation_digest" = ? LIMIT ?[0m  [["blob_id", 4], ["variation_digest", "W3rQbiDVl3RX0dJoKIDlgkZ9b4A="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:15:in `pfp_thumbnail'
+[36m  Disk Storage (0.2ms) [0m[34mDownloaded file from key: g9yy5ofq04ww4oq3dz2srlm9aqui[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:15:in `pfp_thumbnail'
+  [1m[36mActiveStorage::VariantRecord Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_variant_records" ("blob_id", "variation_digest") VALUES (?, ?)[0m  [["blob_id", 4], ["variation_digest", "W3rQbiDVl3RX0dJoKIDlgkZ9b4A="]]
+  ↳ app/models/user.rb:15:in `pfp_thumbnail'
+  [1m[36mActiveStorage::Blob Load (0.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "ActiveStorage::VariantRecord"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:15:in `pfp_thumbnail'
+  [1m[36mActiveStorage::Attachment Load (0.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "ActiveStorage::VariantRecord"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:15:in `pfp_thumbnail'
+  [1m[36mActiveStorage::Blob Create (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["key", "ankegwixxp45kwh9gvl5q00t2av5"], ["filename", "default_profile.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 4032], ["checksum", "gZBgSks92vPOW6idq881/Q=="], ["created_at", "2024-02-19 13:31:39.710048"]]
+  ↳ app/models/user.rb:15:in `pfp_thumbnail'
+  [1m[36mActiveStorage::Attachment Create (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "image"], ["record_type", "ActiveStorage::VariantRecord"], ["record_id", 4], ["blob_id", 7], ["created_at", "2024-02-19 13:31:39.711463"]]
+  ↳ app/models/user.rb:15:in `pfp_thumbnail'
+  [1m[36mTRANSACTION (6.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:15:in `pfp_thumbnail'
+[36m  Disk Storage (0.8ms) [0m[32mUploaded file to key: ankegwixxp45kwh9gvl5q00t2av5 (checksum: gZBgSks92vPOW6idq881/Q==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 6f587133-9cb3-4c98-8cc3-b6a871da2a46) to Async(default) with arguments: #<GlobalID:0x00007f8b9126bc58 @uri=#<URI::GID gid://chatroom/ActiveStorage::Blob/7>>
+  Rendered pages/home.html.erb within layouts/application (Duration: 84.7ms | Allocations: 15313)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered layout layouts/application.html.erb (Duration: 92.8ms | Allocations: 18344)
+Completed 200 OK in 94ms (Views: 85.3ms | ActiveRecord: 8.0ms | Allocations: 18689)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [6f587133-9cb3-4c98-8cc3-b6a871da2a46]   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [6f587133-9cb3-4c98-8cc3-b6a871da2a46] Performing ActiveStorage::AnalyzeJob (Job ID: 6f587133-9cb3-4c98-8cc3-b6a871da2a46) from Async(default) enqueued at 2024-02-19T13:31:39Z with arguments: #<GlobalID:0x00007f8b911b8540 @uri=#<URI::GID gid://chatroom/ActiveStorage::Blob/7>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [6f587133-9cb3-4c98-8cc3-b6a871da2a46] [36m  Disk Storage (0.1ms) [0m[34mDownloaded file from key: ankegwixxp45kwh9gvl5q00t2av5[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [6f587133-9cb3-4c98-8cc3-b6a871da2a46]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [6f587133-9cb3-4c98-8cc3-b6a871da2a46]   [1m[36mActiveStorage::Blob Update (0.3ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = ? WHERE "active_storage_blobs"."id" = ?[0m  [["metadata", "{\"identified\":true,\"width\":120,\"height\":150,\"analyzed\":true}"], ["id", 7]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [6f587133-9cb3-4c98-8cc3-b6a871da2a46]   [1m[36mTRANSACTION (13.0ms)[0m  [1m[36mcommit transaction[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [6f587133-9cb3-4c98-8cc3-b6a871da2a46] Performed ActiveStorage::AnalyzeJob (Job ID: 6f587133-9cb3-4c98-8cc3-b6a871da2a46) from Async(default) in 26.16ms
+Unsubscribing from channel: {"channel":"Turbo::StreamsChannel","signed_stream_name":"InVzZXJzIg==--ba9077c2cd156416a85135fc1aca12c1001f38f78109efc8769bf1aaa488fd7a"}
+Turbo::StreamsChannel stopped streaming from users
+Started GET "/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--0a057c70b342e6603cedc0bc34ae882a33b4ef1c/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVFHV2FRR1ciLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--9668ba579fd89e03c4650d1e22d49f1a268b0276/default_profile.jpg" for ::1 at 2024-02-19 14:31:39 +0100
+Processing by ActiveStorage::Representations::RedirectController#show as JPEG
+  Parameters: {"signed_blob_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBDUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--0a057c70b342e6603cedc0bc34ae882a33b4ef1c", "variation_key"=>"[FILTERED]", "filename"=>"default_profile"}
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mActiveStorage::VariantRecord Load (0.1ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = ? AND "active_storage_variant_records"."variation_digest" = ? LIMIT ?[0m  [["blob_id", 4], ["variation_digest", "W3rQbiDVl3RX0dJoKIDlgkZ9b4A="], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 4], ["record_type", "ActiveStorage::VariantRecord"], ["name", "image"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+[36m  Disk Storage (0.5ms) [0m[34mGenerated URL for file at key: ankegwixxp45kwh9gvl5q00t2av5 (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhZVzVyWldkM2FYaDRjRFExYTNkb09XZDJiRFZ4TURCME1tRjJOUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVVdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbFptRjFiSFJmY0hKdlptbHNaUzVxY0djaU95Qm1hV3hsYm1GdFpTbzlWVlJHTFRnbkoyUmxabUYxYkhSZmNISnZabWxzWlM1cWNHY0dPd1pVT2hGamIyNTBaVzUwWDNSNWNHVkpJZzlwYldGblpTOXFjR1ZuQmpzR1ZEb1JjMlZ5ZG1salpWOXVZVzFsT2dwc2IyTmhiQT09IiwiZXhwIjoiMjAyNC0wMi0xOVQxMzozNjozOS43NzRaIiwicHVyIjoiYmxvYl9rZXkifX0=--cbc8d42cf96386f0b5b1e21c20c962a915d060b4/default_profile.jpg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhZVzVyWldkM2FYaDRjRFExYTNkb09XZDJiRFZ4TURCME1tRjJOUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVVdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbFptRjFiSFJmY0hKdlptbHNaUzVxY0djaU95Qm1hV3hsYm1GdFpTbzlWVlJHTFRnbkoyUmxabUYxYkhSZmNISnZabWxzWlM1cWNHY0dPd1pVT2hGamIyNTBaVzUwWDNSNWNHVkpJZzlwYldGblpTOXFjR1ZuQmpzR1ZEb1JjMlZ5ZG1salpWOXVZVzFsT2dwc2IyTmhiQT09IiwiZXhwIjoiMjAyNC0wMi0xOVQxMzozNjozOS43NzRaIiwicHVyIjoiYmxvYl9rZXkifX0=--cbc8d42cf96386f0b5b1e21c20c962a915d060b4/default_profile.jpg
+Completed 302 Found in 7ms (ActiveRecord: 0.4ms | Allocations: 3926)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhZVzVyWldkM2FYaDRjRFExYTNkb09XZDJiRFZ4TURCME1tRjJOUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVVdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbFptRjFiSFJmY0hKdlptbHNaUzVxY0djaU95Qm1hV3hsYm1GdFpTbzlWVlJHTFRnbkoyUmxabUYxYkhSZmNISnZabWxzWlM1cWNHY0dPd1pVT2hGamIyNTBaVzUwWDNSNWNHVkpJZzlwYldGblpTOXFjR1ZuQmpzR1ZEb1JjMlZ5ZG1salpWOXVZVzFsT2dwc2IyTmhiQT09IiwiZXhwIjoiMjAyNC0wMi0xOVQxMzozNjozOS43NzRaIiwicHVyIjoiYmxvYl9rZXkifX0=--cbc8d42cf96386f0b5b1e21c20c962a915d060b4/default_profile.jpg" for ::1 at 2024-02-19 14:31:39 +0100
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"default_profile"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 211)
+
+
+Unsubscribing from channel: {"channel":"Turbo::StreamsChannel","signed_stream_name":"InJvb21zIg==--74914ebde2d38acbed724cb00f75052cfb20428166d157404aafa34cbf6f22d3"}
+Turbo::StreamsChannel stopped streaming from rooms
+Unsubscribing from channel: {"channel":"Turbo::StreamsChannel","signed_stream_name":"IloybGtPaTh2WTJoaGRISnZiMjB2VW05dmJTODAi--9abe6bdae269a4392cd2262307676d794586e593cb439842d0f7ce6cda871024"}
+Turbo::StreamsChannel stopped streaming from Z2lkOi8vY2hhdHJvb20vUm9vbS80
+Started GET "/users/edit" for ::1 at 2024-02-19 14:31:42 +0100
+Processing by Users::RegistrationsController#edit as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 18)
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "User"], ["name", "pfp"], ["LIMIT", 1]]
+  ↳ app/views/devise/registrations/edit.html.erb:5
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:15:in `pfp_thumbnail'
+  [1m[36mActiveStorage::VariantRecord Load (0.3ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = ? AND "active_storage_variant_records"."variation_digest" = ? LIMIT ?[0m  [["blob_id", 4], ["variation_digest", "W3rQbiDVl3RX0dJoKIDlgkZ9b4A="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:15:in `pfp_thumbnail'
+  Rendered devise/registrations/edit.html.erb within layouts/application (Duration: 12.0ms | Allocations: 4733)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 14)
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 7459)
+Completed 200 OK in 21ms (Views: 16.5ms | ActiveRecord: 1.2ms | Allocations: 10224)
+
+
+Started DELETE "/users" for ::1 at 2024-02-19 14:31:44 +0100
+Processing by Users::RegistrationsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMessage Load (0.1ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[36mMessage Destroy (0.1ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = ?[0m  [["id", 1]]
+  [1m[36mMessage Destroy (0.0ms)[0m  [1m[31mDELETE FROM "messages" WHERE "messages"."id" = ?[0m  [["id", 2]]
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "User"], ["name", "pfp"], ["LIMIT", 1]]
+  [1m[36mActiveStorage::Attachment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "active_storage_attachments" WHERE "active_storage_attachments"."id" = ?[0m  [["id", 4]]
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 1.1ms | Allocations: 12053)
+
+
+  
+ActiveRecord::InvalidForeignKey (SQLite3::ConstraintException: FOREIGN KEY constraint failed):
+  
+sqlite3 (1.4.2) lib/sqlite3/statement.rb:108:in `step'
+sqlite3 (1.4.2) lib/sqlite3/statement.rb:108:in `block in each'
+sqlite3 (1.4.2) lib/sqlite3/statement.rb:107:in `loop'
+sqlite3 (1.4.2) lib/sqlite3/statement.rb:107:in `each'
+activerecord (7.0.1) lib/active_record/connection_adapters/sqlite3/database_statements.rb:56:in `to_a'
+activerecord (7.0.1) lib/active_record/connection_adapters/sqlite3/database_statements.rb:56:in `block (2 levels) in exec_query'
+activesupport (7.0.1) lib/active_support/concurrency/share_lock.rb:187:in `yield_shares'
+activesupport (7.0.1) lib/active_support/dependencies/interlock.rb:41:in `permit_concurrent_loads'
+activerecord (7.0.1) lib/active_record/connection_adapters/sqlite3/database_statements.rb:47:in `block in exec_query'
+activesupport (7.0.1) lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+activesupport (7.0.1) lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+activesupport (7.0.1) lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+activesupport (7.0.1) lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+activerecord (7.0.1) lib/active_record/connection_adapters/abstract_adapter.rb:765:in `block in log'
+activesupport (7.0.1) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activerecord (7.0.1) lib/active_record/connection_adapters/abstract_adapter.rb:756:in `log'
+activerecord (7.0.1) lib/active_record/connection_adapters/sqlite3/database_statements.rb:46:in `exec_query'
+activerecord (7.0.1) lib/active_record/connection_adapters/sqlite3/database_statements.rb:74:in `exec_delete'
+activerecord (7.0.1) lib/active_record/connection_adapters/abstract/database_statements.rb:181:in `delete'
+activerecord (7.0.1) lib/active_record/connection_adapters/abstract/query_cache.rb:22:in `delete'
+activerecord (7.0.1) lib/active_record/persistence.rb:530:in `_delete_record'
+activerecord (7.0.1) lib/active_record/persistence.rb:1043:in `_delete_row'
+activerecord (7.0.1) lib/active_record/persistence.rb:1039:in `destroy_row'
+activerecord (7.0.1) lib/active_record/counter_cache.rb:176:in `destroy_row'
+activerecord (7.0.1) lib/active_record/locking/optimistic.rb:121:in `destroy_row'
+activerecord (7.0.1) lib/active_record/persistence.rb:681:in `destroy'
+activerecord (7.0.1) lib/active_record/callbacks.rb:439:in `block in destroy'
+activesupport (7.0.1) lib/active_support/callbacks.rb:107:in `run_callbacks'
+activesupport (7.0.1) lib/active_support/callbacks.rb:929:in `_run_destroy_callbacks'
+activerecord (7.0.1) lib/active_record/callbacks.rb:439:in `destroy'
+activerecord (7.0.1) lib/active_record/transactions.rb:294:in `block in destroy'
+activerecord (7.0.1) lib/active_record/transactions.rb:354:in `block in with_transaction_returning_status'
+activerecord (7.0.1) lib/active_record/connection_adapters/abstract/transaction.rb:319:in `block in within_new_transaction'
+activesupport (7.0.1) lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+activesupport (7.0.1) lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+activesupport (7.0.1) lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+activesupport (7.0.1) lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+activerecord (7.0.1) lib/active_record/connection_adapters/abstract/transaction.rb:317:in `within_new_transaction'
+activerecord (7.0.1) lib/active_record/connection_adapters/abstract/database_statements.rb:316:in `transaction'
+activerecord (7.0.1) lib/active_record/transactions.rb:350:in `with_transaction_returning_status'
+activerecord (7.0.1) lib/active_record/transactions.rb:294:in `destroy'
+devise (4.8.1) app/controllers/devise/registrations_controller.rb:66:in `destroy'
+actionpack (7.0.1) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (7.0.1) lib/abstract_controller/base.rb:214:in `process_action'
+actionpack (7.0.1) lib/action_controller/metal/rendering.rb:53:in `process_action'
+actionpack (7.0.1) lib/abstract_controller/callbacks.rb:234:in `block in process_action'
+activesupport (7.0.1) lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+actiontext (7.0.1) lib/action_text/rendering.rb:20:in `with_renderer'
+actiontext (7.0.1) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.0.1) lib/active_support/callbacks.rb:127:in `instance_exec'
+activesupport (7.0.1) lib/active_support/callbacks.rb:127:in `block in run_callbacks'
+activesupport (7.0.1) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.1) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.1) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.1) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.1) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.1) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.1) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.1) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.1) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.1) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.1) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.1) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.1) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.1) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.1) lib/action_dispatch/routing/mapper.rb:18:in `block in <class:Constraints>'
+actionpack (7.0.1) lib/action_dispatch/routing/mapper.rb:48:in `serve'
+actionpack (7.0.1) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.1) lib/action_dispatch/routing/route_set.rb:850:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.3) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+actionpack (7.0.1) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (7.0.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.1) lib/action_dispatch/middleware/cookies.rb:693:in `call'
+activerecord (7.0.1) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.1) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.1) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (7.0.1) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.1) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.1) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.1) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.1) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.1) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+actionpack (7.0.1) lib/action_dispatch/middleware/server_timing.rb:20:in `call'
+actionpack (7.0.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.1) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.1) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.1) lib/rails/engine.rb:530:in `call'
+puma (5.5.2) lib/puma/configuration.rb:249:in `call'
+puma (5.5.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.5.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.5.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.5.2) lib/puma/server.rb:447:in `process_client'
+puma (5.5.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/" for ::1 at 2024-02-19 14:31:47 +0100
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:5
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "User"], ["name", "pfp"], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:9
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:15:in `pfp_thumbnail'
+  [1m[36mActiveStorage::VariantRecord Load (0.1ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = ? AND "active_storage_variant_records"."variation_digest" = ? LIMIT ?[0m  [["blob_id", 4], ["variation_digest", "W3rQbiDVl3RX0dJoKIDlgkZ9b4A="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:15:in `pfp_thumbnail'
+  Rendered pages/home.html.erb within layouts/application (Duration: 6.6ms | Allocations: 4021)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 15)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 6897)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.3ms | Allocations: 7272)
+
+
+Started GET "/" for ::1 at 2024-02-19 14:31:47 +0100
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:5
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "User"], ["name", "pfp"], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:9
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:15:in `pfp_thumbnail'
+  [1m[36mActiveStorage::VariantRecord Load (0.1ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = ? AND "active_storage_variant_records"."variation_digest" = ? LIMIT ?[0m  [["blob_id", 4], ["variation_digest", "W3rQbiDVl3RX0dJoKIDlgkZ9b4A="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:15:in `pfp_thumbnail'
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.0ms | Allocations: 3731)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 6474)
+Completed 200 OK in 11ms (Views: 10.7ms | ActiveRecord: 0.4ms | Allocations: 6806)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2024-02-19 14:31:47 +0100
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhZVzVyWldkM2FYaDRjRFExYTNkb09XZDJiRFZ4TURCME1tRjJOUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpVVdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbFptRjFiSFJmY0hKdlptbHNaUzVxY0djaU95Qm1hV3hsYm1GdFpTbzlWVlJHTFRnbkoyUmxabUYxYkhSZmNISnZabWxzWlM1cWNHY0dPd1pVT2hGamIyNTBaVzUwWDNSNWNHVkpJZzlwYldGblpTOXFjR1ZuQmpzR1ZEb1JjMlZ5ZG1salpWOXVZVzFsT2dwc2IyTmhiQT09IiwiZXhwIjoiMjAyNC0wMi0xOVQxMzozNjozOS43NzRaIiwicHVyIjoiYmxvYl9rZXkifX0=--cbc8d42cf96386f0b5b1e21c20c962a915d060b4/default_profile.jpg" for ::1 at 2024-02-19 14:31:47 +0100
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"default_profile"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 244)
+
+
+Started GET "/" for ::1 at 2024-02-19 14:31:48 +0100
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:5
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 3], ["record_type", "User"], ["name", "pfp"], ["LIMIT", 1]]
+  ↳ app/views/pages/home.html.erb:9
+  [1m[36mActiveStorage::Blob Load (0.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/user.rb:15:in `pfp_thumbnail'
+  [1m[36mActiveStorage::VariantRecord Load (0.1ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = ? AND "active_storage_variant_records"."variation_digest" = ? LIMIT ?[0m  [["blob_id", 4], ["variation_digest", "W3rQbiDVl3RX0dJoKIDlgkZ9b4A="], ["LIMIT", 1]]
+  ↳ app/models/user.rb:15:in `pfp_thumbnail'
+  Rendered pages/home.html.erb within layouts/application (Duration: 5.4ms | Allocations: 3731)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 6474)
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.2ms | Allocations: 6809)
+
+
